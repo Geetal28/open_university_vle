@@ -19,13 +19,13 @@ The dataset used for this project is the Open University Learning Analytics Data
  3. Data
     Contains the cleaned and preprocessed data files used for analysis:
 
-- assessments.xlsx
-- courses.xlsx
-- studentAssessment.xlsx
-- studentInfo.xlsx
-- studentRegistration.xlsx
-- vle.xlsx
-- studentVle.csv
+  - assessments.xlsx
+  - courses.xlsx
+  - studentAssessment.xlsx
+  - studentInfo.xlsx
+  - studentRegistration.xlsx
+  - vle.xlsx
+  - studentVle.csv
   
 The dataset studentVle.csv, which logs over 10 million rows of interaction data between students and the VLE system, is not included in this repository due to GitHub's file size limit (100 MB maximum per file). The file size is approximately 422 MB.
 
@@ -42,24 +42,24 @@ This project uses the following technologies and Python libraries:
   
 The data analysis and modeling tasks are written entirely in Python within a single .ipynb notebook.
 
-#Methodology
-1. Data Cleaning and Preparation
+## Methodology
+ 1. Data Cleaning and Preparation
    
-- The OULAD dataset consists of seven main tables. These tables were loaded, cleaned, and joined based on common keys such as id_student, code_module, and code_presentation. Specific cleaning steps include:
-- Handling missing values (? replaced with appropriate defaults or dropped).
-- Removing duplicate entries.
-- Normalizing categorical values (e.g., age bands, IMD bands).
-- Filtering and aggregating VLE clickstream data per student-course pair.
+  - The OULAD dataset consists of seven main tables. These tables were loaded, cleaned, and joined based on common keys such as id_student, code_module, and code_presentation. Specific cleaning steps include:
+  - Handling missing values (? replaced with appropriate defaults or dropped).
+  - Removing duplicate entries.
+  - Normalizing categorical values (e.g., age bands, IMD bands).
+  - Filtering and aggregating VLE clickstream data per student-course pair.
   
-2. Exploratory Data Analysis (EDA)
+ 2. Exploratory Data Analysis (EDA)
    
-- A comprehensive EDA was performed to understand:
-- The distribution of modules, assessment types, and demographics.
-- Relationships between VLE activity (e.g., total clicks) and final grades.
-- Weekly usage patterns across student groups.
-- Performance variation across modules, age bands, and socio-economic backgrounds.
+  - A comprehensive EDA was performed to understand:
+  - The distribution of modules, assessment types, and demographics.
+  - Relationships between VLE activity (e.g., total clicks) and final grades.
+  - Weekly usage patterns across student groups.
+  - Performance variation across modules, age bands, and socio-economic backgrounds.
   
-3. Statistical Testing
+ 3. Statistical Testing
    
 A two-sample independent t-test was conducted to compare average VLE interaction between students who passed and those who failed. The null hypothesis assumed no difference between groups. All modules showed statistically significant differences (p < 0.05), indicating a strong relationship between VLE usage and success.
 
@@ -74,26 +74,29 @@ Two models were explored:
    
 Recursive Feature Elimination (RFE) was applied to identify the top 10 most informative features. The final logistic regression model achieved:
 
-- Accuracy: 77.3%
-- Precision: 77.2%
-- Recall: 77.4%
-- F1 Score: 77.2%
+  - Accuracy: 77.3%
+  - Precision: 77.2%
+  - Recall: 77.4%
+  - F1 Score: 77.2%
   
 These metrics indicate a well-balanced and moderately accurate model for classification tasks.
 
 ## Key Findings
-Students who interact more with the VLE tend to perform better academically.
-Demographic factors such as education level, age band, and socio-economic status significantly affect outcomes.
-Certain modules (e.g., "FFF") are associated with higher failure rates and require additional support interventions.
-Students with disabilities or lower educational backgrounds are more likely to struggle, highlighting areas for inclusive learning support.
+
+ - Students who interact more with the VLE tend to perform better academically.
+ - Demographic factors such as education level, age band, and socio-economic status significantly affect outcomes.
+ - Certain modules (e.g., "FFF") are associated with higher failure rates and require additional support interventions.
+ - Students with disabilities or lower educational backgrounds are more likely to struggle, highlighting areas for inclusive learning support.
 
 
 ## Limitations
-- Imbalance between Pass and Fail labels could affect model generalization.
-- The interaction data (sum_click) does not differentiate between meaningful engagement and passive clicks.
-- The project is based solely on Open University data; conclusions may not generalize to other institutions.
-- Due to GitHub limitations, not all raw data can be hosted directly in the repository.
+
+  - Imbalance between Pass and Fail labels could affect model generalization.
+  - The interaction data (sum_click) does not differentiate between meaningful engagement and passive clicks.
+  - The project is based solely on Open University data; conclusions may not generalize to other institutions.
+  - Due to GitHub limitations, not all raw data can be hosted directly in the repository.
 
 ## License and Attribution
-Dataset: Open University Learning Analytics Dataset (OULAD)
-Author: This project was completed for academic assessment within the MSc programme.
+
+-Dataset: Open University Learning Analytics Dataset (OULAD)
+-Author: This project was completed for academic assessment within the MSc programme.
